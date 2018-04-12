@@ -23,8 +23,9 @@ def generate_timestamp(column):
     return '{0:s} {1:02d}:{2:02d}:{3:02d}'.format(column, random.randint(0, 23), # Hours
                                                   random.randint(0, 59), # Minutes
                                                   random.randint(0, 59)) # Seconds
-# Convert date string to timestamp string
+# Convert date string to timestamp string and sort
 df['date'] = df['date'].apply(generate_timestamp)
+df.sort_values(by = 'date', inplace = True)
 
 # Looks good!
 df.head()
